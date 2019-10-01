@@ -4,7 +4,7 @@ namespace :webpacker do
   desc 'Precompile assets locally and then rsync to web servers'
   task :precompile do
     run_locally do
-      with rails_env: :production do
+      with rails_env: fetch(:rails_env) do
         execute :rails, 'webpacker:clobber'
         execute :rails, 'webpacker:compile'
       end
