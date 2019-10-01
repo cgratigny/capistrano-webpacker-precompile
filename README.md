@@ -29,7 +29,7 @@ after 'deploy:updated', 'webpacker:precompile'
 
 Done!
 
-Now `cap production deploy` command will automatically precompile webpacker assets and sync it with remote server.
+Now `cap :environment deploy` command will automatically precompile webpacker assets and sync it with remote server.
 
 ## License
 

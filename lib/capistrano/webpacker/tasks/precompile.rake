@@ -13,12 +13,12 @@ namespace :webpacker do
     on roles(:web), in: :parallel do |server|
       run_locally do
         execute :rsync,
-          "-a --delete ./public/#{config['production']['source_entry_path']}/ #{fetch(:user)}@#{server.hostname}:#{shared_path}/public/#{config['production']['source_entry_path']}/"
+          "-a --delete ./public/#{config[fetch(:rails_env)]['source_entry_path']}/ #{fetch(:user)}@#{server.hostname}:#{shared_path}/public/#{config[fetch(:rails_env)]['source_entry_path']}/"
       end
     end
 
     run_locally do
-      execute :rm, "-rf public/#{config['production']['source_entry_path']}"
+      execute :rm, "-rf public/#{config[fetch(:rails_env)]['source_entry_path']}"
     end
   end
 end
